@@ -15,8 +15,11 @@ export CPP=x86_64-w64-mingw32-cpp
 export AR=x86_64-w64-mingw32-ar
 export RANLIB=x86_64-w64-mingw32-ranlib
 
-export TARGET_PATH=/tmp/dependencies-install
-export TARGET_PATH=/tmp/local/dependencies-install_win64
+if [ "x$TARGET_PATH" == "x" ]; then
+   export TARGET_PATH=/tmp/local/dependencies-install_win64
+   cdir "$TARGET_PATH"
+fi
+
 export PKG_CONFIG_PATH=$TARGET_PATH/lib/pkgconfig
 
 pushd glew-1.7.0
