@@ -6,5 +6,5 @@ includedir=@prefix@/include
 Name: glew
 Description: The OpenGL Extension Wrangler library
 Version: @version@
-Cflags: -I${includedir} @cflags@
-Libs: -L${libdir} -l@libname@
+Cflags: -I${includedir} -DGLEW_STATIC=1 @cflags@
+Libs: -L${libdir} -lglew32
