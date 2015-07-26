@@ -807,6 +807,13 @@ wrgif_.$(OBJEXT) wrgif_.lo wrjpgcom_.$(OBJEXT) wrjpgcom_.lo \
 wrppm_.$(OBJEXT) wrppm_.lo wrrle_.$(OBJEXT) wrrle_.lo \
 wrtarga_.$(OBJEXT) wrtarga_.lo : $(ANSI2KNR)
 
+libjpeg.pc: libjpeg.pc.in
+	sed \
+		-e "s|@PREFIX@|@prefix@|g" \
+		-e "s|@CFLAGS@||g" \
+		-e "s|@LIBNAME@|jpeg|g" \
+		< $< > $@
+
 mostlyclean-libtool:
 	-rm -f *.lo
 
@@ -1062,9 +1069,10 @@ uninstall-man: uninstall-man1
 
 
 # Install jconfig.h
-install-data-local:
+install-data-local: libjpeg.pc
 	$(mkinstalldirs) $(DESTDIR)$(includedir)
 	$(INSTALL_HEADER) jconfig.h $(DESTDIR)$(includedir)/jconfig.h
+	$(INSTALL_HEADER) libjpeg.pc $(DESTDIR)/lib/$(libdir)/pkgconfig/
 
 # Uninstall jconfig.h
 uninstall-local:
