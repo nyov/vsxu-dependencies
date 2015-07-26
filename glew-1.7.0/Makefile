@@ -118,6 +118,17 @@ glew.pc: glew.pc.in
 		-e "s|@libname@|GLEW|g" \
 		< $< > $@
 
+glewmx.pc: glewmx.pc.in
+	sed \
+		-e "s|@prefix@|$(GLEW_DEST)|g" \
+		-e "s|@libdir@|$(LIBDIR)|g" \
+		-e "s|@exec_prefix@|$(BINDIR)|g" \
+		-e "s|@includedir@|$(INCDIR)|g" \
+		-e "s|@version@|$(GLEW_VERSION)|g" \
+		-e "s|@cflags@||g" \
+		-e "s|@libname@|GLEW|g" \
+		< $< > $@
+
 src/glew.o: src/glew.c include/GL/glew.h include/GL/wglew.h include/GL/glxew.h
 	$(CC) -DGLEW_NO_GLU $(CFLAGS) $(CFLAGS.SO) -o $@ -c $<
 
@@ -139,7 +150,7 @@ else
 	$(LN) $(LIB.SHARED.MX) lib/$(LIB.DEVLNK.MX)
 endif
 
-glewmx.pc: glew.pc.in
+glewmx.pc: glewmx.pc.in
 	sed \
 		-e "s|@prefix@|$(GLEW_DEST)|g" \
 		-e "s|@libdir@|$(LIBDIR)|g" \
