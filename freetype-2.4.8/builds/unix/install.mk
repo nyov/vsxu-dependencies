@@ -46,8 +46,8 @@ install: $(PROJECT_LIBRARY)
         done
 	-$(DELETE) $(DESTDIR)$(includedir)/freetype2/freetype/cache/*
 	-$(DELDIR) $(DESTDIR)$(includedir)/freetype2/freetype/cache
-	-$(DELETE) $(DESTDIR)$(includedir)/freetype2/freetype/internal/*
-	-$(DELDIR) $(DESTDIR)$(includedir)/freetype2/freetype/internal
+#	-$(DELETE) $(DESTDIR)$(includedir)/freetype2/freetype/internal/*
+#	-$(DELDIR) $(DESTDIR)$(includedir)/freetype2/freetype/internal
 	$(INSTALL_DATA) $(BUILD_DIR)/ft2unix.h \
           $(DESTDIR)$(includedir)/ft2build.h
 	$(INSTALL_DATA) $(OBJ_BUILD)/ftconfig.h                        \
