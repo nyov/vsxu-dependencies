@@ -125,7 +125,11 @@ main()
       /*
        *_x86 only!!!
        */
+#if defined(_M_IX86)
       context.Eip = (DWORD) anotherEnding;
+#else
+      context.Rip = (DWORD64) anotherEnding;
+#endif
       SetThreadContext(hThread, &context);
       ResumeThread(hThread);
     }

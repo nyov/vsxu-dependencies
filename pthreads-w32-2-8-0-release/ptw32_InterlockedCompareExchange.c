@@ -181,7 +181,7 @@ ptw32_InterlockedExchange (LPLONG location,
 
 /* *INDENT-OFF* */
 
-#if defined(_M_IX86) || defined(_X86_)
+#if defined(_M_IX86) || defined(_X86_) || defined(_M_X64)
 
 #if defined(_MSC_VER) || defined(__WATCOMC__) || (defined(__BORLANDC__) && defined(HAVE_TASM32))
 #define HAVE_INLINABLE_INTERLOCKED_XCHG
@@ -267,14 +267,26 @@ L1:	MOV          eax,dword ptr [ecx]
 #endif
 
 #else
-
+#if defined(_WIN64)
+  /*
+   * Microsoft Visual C++ 7.1 and newer have _Interlocked intrinsics
+   */   
+  {
+    result = InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand);
+  }
+  else
+    {
+      result = InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand);
+    }
+#else
   /*
    * If execution gets to here then we're running on a currently
    * unsupported processor or compiler.
    */
 
-  result = 0;
-
+result = 0;
+#error Unsupported platform or compiler!
+#endif
 #endif
 
 /* *INDENT-ON* */
