@@ -1072,7 +1072,7 @@ uninstall-man: uninstall-man1
 install-data-local: libjpeg.pc
 	$(mkinstalldirs) $(DESTDIR)$(includedir)
 	$(INSTALL_HEADER) jconfig.h $(DESTDIR)$(includedir)/jconfig.h
-	$(INSTALL_HEADER) libjpeg.pc $(DESTDIR)/lib/$(libdir)/pkgconfig/
+	$(INSTALL_HEADER) libjpeg.pc $(libdir)/pkgconfig/
 
 # Uninstall jconfig.h
 uninstall-local:
