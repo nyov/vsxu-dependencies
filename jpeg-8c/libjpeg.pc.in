@@ -1,0 +1,10 @@
+PREFIX=@PREFIX@
+exec_PREFIX=@PREFIX@
+libdir=@PREFIX@/lib
+includedir=@PREFIX@/include
+
+Name: libjpeg
+Description: Independent JPEG Group's JPEG runtime library
+Version: 8c
+Cflags: -I${includedir} -DJPEG_STATIC=1 @cflags@
+Libs: -L${libdir} -ljpeg
