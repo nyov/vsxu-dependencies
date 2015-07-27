@@ -42,6 +42,7 @@ popd
 
 pushd jpeg-8c
 CFLAGS="-DJPEG_STATIC=1 -static" ./configure --prefix=$TARGET_PATH --host=x86_64-w64-mingw32 --enable-static=yes --enable-shared=no
+make -j$CONCURRENT install
 popd
 
 pushd SDL2-2.0.1
@@ -59,4 +60,4 @@ LIBS=-lws2_32 LDFLAGS=-static ./configure --prefix=$TARGET_PATH --host=x86_64-w6
 make -j$CONCURRENT install
 popd
 
-./build_png.sh
+./win64_build_png.sh
