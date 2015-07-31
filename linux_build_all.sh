@@ -37,8 +37,8 @@ CFLAGS="-DZLIB_STATIC=1 -static" ./configure --prefix=$TARGET_PATH --64 --static
 make -j$CONCURRENT install
 popd
 
-pushd glfw-2.7.2/lib/x11
-make PREFIX=$TARGET_PATH -f Makefile.x11 install
+pushd glfw-2.7.2/
+make PREFIX=$TARGET_PATH x11-install
 popd
 
 pushd jpeg-8c
