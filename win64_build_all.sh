@@ -23,7 +23,7 @@ fi
 export PKG_CONFIG_PATH=$TARGET_PATH/lib/pkgconfig
 
 pushd glew-1.7.0
-CFLAGS="-DGLEW_STATIC=1 -static" GLEW_DEST=$TARGET_PATH make -j$CONCURRENT SYSTEM=linux-x86_64-w64-mingw32 install
+CFLAGS="-DGLEW_STATIC=1 -static" GLEW_DEST=$TARGET_PATH make -j$CONCURRENT SYSTEM=linux-x86_64-w64-mingw32 LIBNAME="glew32" install
 popd
 
 pushd freetype-2.4.8

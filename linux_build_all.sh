@@ -28,7 +28,7 @@ CFLAGS="-DGLEW_STATIC=1 -static" GLEW_DEST=$TARGET_PATH make -j$CONCURRENT insta
 popd
 
 pushd freetype-2.4.8
-CFLAGS="-DFREETYPE_STATIC=1 -static" ./configure --prefix=$TARGET_PATH
+./configure --prefix=$TARGET_PATH
 make -j$CONCURRENT install
 popd
 
@@ -37,8 +37,8 @@ CFLAGS="-DZLIB_STATIC=1 -static" ./configure --prefix=$TARGET_PATH --64 --static
 make -j$CONCURRENT install
 popd
 
-pushd glfw-2.7.2/lib/win32
-make -f Makefile.win64.cross-mgww64 PREFIX=$TARGET_PATH install
+pushd glfw-2.7.2/lib/x11
+make PREFIX=$TARGET_PATH -f Makefile.x11 install
 popd
 
 pushd jpeg-8c
