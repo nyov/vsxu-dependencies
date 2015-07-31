@@ -7,4 +7,4 @@ Name: glew
 Description: The OpenGL Extension Wrangler library
 Version: @version@
 Cflags: -I${includedir} -DGLEW_STATIC=1 @cflags@
-Libs: -L${libdir} -lglew32
+Libs: -L${libdir} -l@libname@

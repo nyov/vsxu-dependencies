@@ -46,6 +46,8 @@ LIBDIR ?= $(GLEW_DEST)/lib
 INCDIR ?= $(GLEW_DEST)/include/GL
 SHARED_OBJ_EXT ?= o
 
+LIBNAME ?= "GLEW"
+
 TARDIR = ../glew-$(GLEW_VERSION)
 TARBALL = ../glew-$(GLEW_VERSION).tar.gz
 
@@ -115,7 +117,7 @@ glew.pc: glew.pc.in
 		-e "s|@includedir@|$(INCDIR)|g" \
 		-e "s|@version@|$(GLEW_VERSION)|g" \
 		-e "s|@cflags@||g" \
-		-e "s|@libname@|GLEW|g" \
+		-e "s|@libname@|$(LIBNAME)|g" \
 		< $< > $@
 
 glewmx.pc: glewmx.pc.in
@@ -126,7 +128,7 @@ glewmx.pc: glewmx.pc.in
 		-e "s|@includedir@|$(INCDIR)|g" \
 		-e "s|@version@|$(GLEW_VERSION)|g" \
 		-e "s|@cflags@||g" \
-		-e "s|@libname@|GLEW|g" \
+		-e "s|@libname@|$(LIBNAME)|g" \
 		< $< > $@
 
 src/glew.o: src/glew.c include/GL/glew.h include/GL/wglew.h include/GL/glxew.h

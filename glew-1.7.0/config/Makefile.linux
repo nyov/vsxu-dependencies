@@ -5,7 +5,7 @@ PICFLAG = -fPIC
 M_ARCH ?= $(shell uname -m)
 ifeq (x86_64,${M_ARCH})
 LDFLAGS.EXTRA = -L/usr/X11R6/lib64
-LIBDIR = $(GLEW_DEST)/lib64
+LIBDIR = $(GLEW_DEST)/lib
 else
 LDFLAGS.EXTRA = -L/usr/X11R6/lib
 LIBDIR = $(GLEW_DEST)/lib
