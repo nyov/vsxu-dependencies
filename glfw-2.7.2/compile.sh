@@ -663,23 +663,23 @@ cat './tests/Makefile.x11.in' >>$MKNAME
 # Create pkg-config template file (which is used to create libglfw.pc)
 # ---------------------------------------------------------------------
 
-MKNAME="./lib/x11/libglfw.pc.in"
-
-echo "Creating $MKNAME" 1>&6
-
-echo "$self: Creating $MKNAME" >&5
-
-cat > "$MKNAME" <<EOF
-prefix=@PREFIX@
-exec_prefix=@PREFIX@
-libdir=@PREFIX@/lib
-includedir=@PREFIX@/include
-
-Name: GLFW
-Description: A portable framework for OpenGL development
-Version: 2.7
-URL: http://www.glfw.org/
-Libs: -L\${libdir} -lglfw $LFLAGS_THREAD
-Cflags: -I\${includedir} $CFLAGS_THREAD 
-EOF
+#MKNAME="./lib/x11/libglfw.pc.in"
+#
+#echo "Creating $MKNAME" 1>&6
+#
+#echo "$self: Creating $MKNAME" >&5
+#
+#cat > "$MKNAME" <<EOF
+#prefix=@PREFIX@
+#exec_prefix=@PREFIX@
+#libdir=@PREFIX@/lib
+#includedir=@PREFIX@/include
+#
+#Name: GLFW
+#Description: A portable framework for OpenGL development
+#Version: 2.7
+#URL: http://www.glfw.org/
+#Libs: -L\${libdir} -lglfw $LFLAGS_THREAD
+#Cflags: -I\${includedir} $CFLAGS_THREAD 
+#EOF
 
