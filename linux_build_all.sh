@@ -15,7 +15,7 @@ export CPP=cpp
 export AR=ar
 export RANLIB=ranlib
 
-if [ "x$DEP_TARGET_PATH" == "x" ]; then
+if [ "x$DEP_INSTALL_PATH" == "x" ]; then
    echo "DEP_INSTALL_PATH must be set; exiting"
    echo "ex. export DEP_INSTALL_PATH=/tmp/local/dependencies-install_linux"
    exit 1
