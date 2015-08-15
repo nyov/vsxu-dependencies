@@ -15,12 +15,15 @@ export CPP=x86_64-w64-mingw32-cpp
 export AR=x86_64-w64-mingw32-ar
 export RANLIB=x86_64-w64-mingw32-ranlib
 
-if [ "x$TARGET_PATH" == "x" ]; then
-   export TARGET_PATH=/tmp/local/dependencies-install_win64
-   cdir "$TARGET_PATH"
+if [ "x$DEP_TARGET_PATH" == "x" ]; then
+   echo "DEP_INSTALL_PATH must be set; exiting"
+   echo "ex. export DEP_INSTALL_PATH=/tmp/local/dependencies-install_win64"
+   exit 1
 fi
 
-export PKG_CONFIG_PATH=$TARGET_PATH/lib/pkgconfig
+export PKG_CONFIG_PATH="$DEP_INSTALL_PATH/lib/pkgconfig"
+export TARGET_PATH="$DEP_INSTALL_PATH"
+cdir "$TARGET_PATH"
 
 pushd glew-1.7.0
 CFLAGS="-DGLEW_STATIC=1 -static" GLEW_DEST=$TARGET_PATH make -j$CONCURRENT SYSTEM=linux-x86_64-w64-mingw32 LIBNAME="glew32" install
@@ -55,9 +58,9 @@ pushd curl-7.43.0
 make -j$CONCURRENT install
 popd
 
-pushd breakpad
-LIBS=-lws2_32 LDFLAGS=-static ./configure --prefix=$TARGET_PATH --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --disable-tools --enable-static
-make -j$CONCURRENT install
-popd
+#pushd breakpad
+#LIBS=-lws2_32 LDFLAGS=-static ./configure --prefix=$TARGET_PATH --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --disable-tools --enable-static
+#make -j$CONCURRENT install
+#popd
 
 ./win64_build_png.sh

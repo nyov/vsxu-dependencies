@@ -15,12 +15,15 @@ export CPP=cpp
 export AR=ar
 export RANLIB=ranlib
 
-if [ "x$TARGET_PATH" == "x" ]; then
-   export TARGET_PATH=/tmp/local/dependencies-install_linux
-   cdir "$TARGET_PATH"
+if [ "x$DEP_TARGET_PATH" == "x" ]; then
+   echo "DEP_INSTALL_PATH must be set; exiting"
+   echo "ex. export DEP_INSTALL_PATH=/tmp/local/dependencies-install_linux"
+   exit 1
 fi
 
-export PKG_CONFIG_PATH=$TARGET_PATH/lib/pkgconfig
+export PKG_CONFIG_PATH="$DEP_INSTALL_PATH/lib/pkgconfig"
+export TARGET_PATH="$DEP_INSTALL_PATH"
+cdir "$TARGET_PATH"
 
 # needs: libxmu-dev
 pushd glew-1.7.0
