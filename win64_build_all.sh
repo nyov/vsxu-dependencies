@@ -15,7 +15,7 @@ export CPP=x86_64-w64-mingw32-cpp
 export AR=x86_64-w64-mingw32-ar
 export RANLIB=x86_64-w64-mingw32-ranlib
 
-if [ "x$DEP_TARGET_PATH" == "x" ]; then
+if [ "x$DEP_INSTALL_PATH" == "x" ]; then
    echo "DEP_INSTALL_PATH must be set; exiting"
    echo "ex. export DEP_INSTALL_PATH=/tmp/local/dependencies-install_win64"
    exit 1
