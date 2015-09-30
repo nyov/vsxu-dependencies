@@ -55,7 +55,7 @@ make -j$CONCURRENT install
 popd
 
 pushd curl-7.43.0
-./configure --prefix=$TARGET_PATH --enable-static=yes --disable-ldap --enable-shared=no --without-zlib --without-winssl --without-darwinssl --without-ssl --without-gnutls --without-polarssl --without-cyassl --without-nss --without-axtls --without-ca-bundle --without-ca-path --without-libmetalink --without-libssh2 --without-librtmp --without-winidn --without-libidn --without-nghttp2
+./configure --prefix=$TARGET_PATH --enable-static=yes --disable-ldap --enable-shared=no  --disable-shared  --without-zlib --without-winssl --without-darwinssl --without-ssl --without-gnutls --without-polarssl --without-cyassl --without-nss --without-axtls --without-ca-bundle --without-ca-path --without-libmetalink --without-libssh2 --without-librtmp --without-winidn --without-libidn --without-nghttp2 --disable-rtsp --disable-ipv6 --disable-manual
 make -j$CONCURRENT install
 popd
 
