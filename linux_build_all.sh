@@ -50,7 +50,7 @@ make -j$CONCURRENT install
 popd
 
 pushd SDL2-2.0.1
-./configure --prefix=$TARGET_PATH --enable-static=yes --enable-shared=no
+./configure --prefix=$TARGET_PATH --enable-static=yes --enable-shared=no --disable-input-tslib
 make -j$CONCURRENT install
 popd
 
