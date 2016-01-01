@@ -44,7 +44,7 @@ TAR=tar
 SHELL=/bin/sh
 EXE=
 
-prefix =/media/leakim/WD3Fast/src/lunasky-scripts/dependencies-install_linux
+prefix =/home/jaw/vsxu-dev/vsxu-dependencies/install
 exec_prefix =${prefix}
 libdir =${exec_prefix}/lib
 sharedlibdir =${libdir}
