@@ -34,13 +34,6 @@ CFLAGS="-DFREETYPE_STATIC=1 -static" ./configure --prefix=$TARGET_PATH --host=x8
 make -j$CONCURRENT install
 popd
 
-set +e
-pushd ftgl-2.1.3~rc5
-./configure --prefix=$TARGET_PATH --with-gl-inc=/usr/local/include --with-gl-lib="/usr/lib64/libGL.so -lGL" --with-ft-prefix=$TARGET_PATH --enable-static --disable-freetypetest
-make -j$CONCURRENT install
-popd
-set -e
-
 pushd zlib-1.2.5
 CFLAGS="-DZLIB_STATIC=1 -static" ./configure --prefix=$TARGET_PATH --64 --static
 make -j$CONCURRENT install
